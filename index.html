@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Antrian UPP BSPJI Padang</title>
+
+<link rel="icon" type="image/png" href="logo-favicon.png">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ================= HEADER ================= -->
+
+<div class="visitor-header">
+
+    <img
+        src="logo-bspji-pdg.png"
+        alt="Logo BSPJI Padang"
+        class="logo-bspji"
+    >
+
+    <h1>UNIT PELAYANAN PUBLIK</h1>
+
+    <h2>BSPJI PADANG</h2>
+
+    <p>SELAMAT DATANG</p>
+
+</div>
+
+
+<!-- ================= PILIH LAYANAN ================= -->
+
+<div class="pilih-layanan">
+
+    <h3>SILAKAN PILIH LAYANAN</h3>
+
+    <div class="layanan" id="daftarLayanan">
+        <p>Memuat layanan...</p>
+    </div>
+
+</div>
+
+<!-- ================= POPUP NOMOR ANTRIAN ================= -->
+
+<div
+    id="popupAntrian"
+    class="popup-overlay"
+>
+
+<div class="popup-antrian">
+
+    <h2>NOMOR ANTRIAN ANDA</h2>
+
+    <h1 id="nomorPopup">A-001</h1>
+
+    <p id="layananPopup">
+        Layanan Jasa
+    </p>
+
+    <p class="pesan-simpan">
+        Simpan nomor antrian Anda
+        untuk memantau giliran.
+    </p>
+
+
+    <button
+        id="btnUnduh"
+        class="btn-unduh"
+        onclick="unduhNomor()"
+    >
+        ↓ UNDUH NOMOR
+    </button>
+
+
+    <button
+        class="btn-tutup"
+        onclick="tutupPopup()"
+    >
+        TUTUP
+    </button>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

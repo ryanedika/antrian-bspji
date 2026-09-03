@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Panel Petugas - BSPJI Padang</title>
+
+<link rel="icon" type="image/png" href="logo-favicon.png">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- ================= HEADER ================= -->
+
+<div class="admin-header">
+
+    <img
+    src="logo-bspji-pdg.png"
+    alt="Logo BSPJI Padang"
+    class="logo-bspji"
+    >
+
+    <h1>UNIT PELAYANAN PUBLIK</h1>
+
+    <h2>BSPJI PADANG</h2>
+
+    <p id="tanggalHari"></p>
+
+    <p>PANEL PETUGAS</p>
+
+</div>
+
+<div class="admin-container">
+
+    <!-- ================= LOKET A ================= -->
+
+    <div class="loket">
+
+        <h2>LOKET A</h2>
+        <h3 id="layananLoketA">LAYANAN</h3>
+
+        <div
+            id="nomorSekarangA"
+            class="nomor-sekarang"
+        >
+            <span class="status-dilayani">
+                SEDANG DILAYANI
+            </span>
+
+            <h1>-</h1>
+        </div>
+
+        <button
+            id="btnPanggilA"
+            onclick="panggilBerikutnya('A')"
+        >
+            PANGGIL BERIKUTNYA
+        </button>
+
+        <button
+            id="btnSelesaiA"
+            onclick="selesaikanAntrian('A')"
+            disabled
+        >
+            SELESAI
+        </button>
+
+        <div
+            id="daftarMenungguA"
+        >
+            <h3>DAFTAR MENUNGGU</h3>
+        </div>
+
+    </div>
+
+
+    <!-- ================= LOKET B ================= -->
+
+    <div class="loket">
+
+        <h2>LOKET B</h2>
+        <h3 id="layananLoketB">LAYANAN</h3>
+
+        <div
+            id="nomorSekarangB"
+            class="nomor-sekarang"
+        >
+            <span class="status-dilayani">
+                SEDANG DILAYANI
+            </span>
+
+            <h1>-</h1>
+        </div>
+
+        <button
+            id="btnPanggilB"
+            onclick="panggilBerikutnya('B')"
+        >
+            PANGGIL BERIKUTNYA
+        </button>
+
+        <button
+            id="btnSelesaiB"
+            onclick="selesaikanAntrian('B')"
+            disabled
+        >
+            SELESAI
+        </button>
+
+        <div
+            id="daftarMenungguB"
+        >
+            <h3>DAFTAR MENUNGGU</h3>
+        </div>
+
+    </div>
+
+
+    <!-- ================= LOKET C ================= -->
+
+    <div class="loket">
+
+        <h2>LOKET C</h2>
+        <h3 id="layananLoketC">LAYANAN</h3>
+
+        <div
+            id="nomorSekarangC"
+            class="nomor-sekarang"
+        >
+            <span class="status-dilayani">
+                SEDANG DILAYANI
+            </span>
+
+            <h1>-</h1>
+        </div>
+
+        <button
+            id="btnPanggilC"
+            onclick="panggilBerikutnya('C')"
+        >
+            PANGGIL BERIKUTNYA
+        </button>
+
+        <button
+            id="btnSelesaiC"
+            onclick="selesaikanAntrian('C')"
+            disabled
+        >
+            SELESAI
+        </button>
+
+        <div
+            id="daftarMenungguC"
+        >
+            <h3>DAFTAR MENUNGGU</h3>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= REKAPITULASI ================= -->
+
+<div class="rekap-container">
+
+    <div class="rekap-header">
+
+        <h2>REKAPITULASI ANTRIAN</h2>
+
+        <p>
+            Unduh rekapitulasi jumlah antrean berdasarkan periode tertentu.
+        </p>
+
+    </div>
+
+
+    <div class="rekap-form">
+
+        <div class="rekap-field">
+
+            <label for="periodeRekap">
+                PERIODE
+            </label>
+
+            <select id="periodeRekap">
+
+                <option value="harian">
+                    Harian
+                </option>
+
+                <option value="mingguan">
+                    Mingguan
+                </option>
+
+                <option value="bulanan">
+                    Bulanan
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div
+            class="rekap-field"
+            id="fieldTanggal"
+        >
+
+            <label for="tanggalRekap">
+                TANGGAL
+            </label>
+
+            <input
+                type="date"
+                id="tanggalRekap"
+            >
+
+        </div>
+
+
+        <div
+            class="rekap-field"
+            id="fieldBulan"
+            style="display: none;"
+        >
+
+            <label for="bulanRekap">
+                BULAN
+            </label>
+
+            <input
+                type="month"
+                id="bulanRekap"
+            >
+
+        </div>
+
+        <button
+            id="btnDownloadRekap"
+            type="button"
+            onclick="downloadRekapExcel()"
+        >
+            <img
+                src="icon-download.png"
+                alt=""
+                class="icon-download"
+            >
+            UNDUH REKAP EXCEL
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

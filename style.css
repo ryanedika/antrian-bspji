@@ -1,0 +1,1833 @@
+/* ========================================
+   GLOBAL FONT
+======================================== */
+
+* {
+    font-family: Arial, sans-serif;
+}
+
+/* ========================================
+   LOGO BSPJI
+======================================== */
+
+.logo-bspji {
+    display: block;
+
+    width: 140px;
+    height: auto;
+
+    margin: 0 auto 22px;
+}
+
+/* ========================================
+   HALAMAN PENGUNJUNG
+======================================== */
+
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ========================================
+   HEADER PENGUNJUNG
+======================================== */
+
+.visitor-header {
+    text-align: center;
+}
+
+.visitor-header::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 6px;
+    margin-bottom: 30px;
+
+    background: linear-gradient(
+        to right,
+        #12345b 0%,
+        #12345b 60%,
+        #78c96b 60%,
+        #78c96b 80%,
+        #d93636 80%,
+        #d93636 100%
+    );
+
+    border-radius: 10px;
+}
+
+.visitor-header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #12345b;
+    letter-spacing: 1px;
+}
+
+.visitor-header h2 {
+    margin: 6px 0 0;
+    font-size: 20px;
+    font-weight: 500;
+    color: #12345b;
+    letter-spacing: 2px;
+    opacity: 0.75;
+}
+
+.visitor-header p {
+    display: inline-block;
+
+    margin: 22px 0 0;
+    padding: 9px 22px;
+
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+
+    background: #12345b;
+    border-radius: 8px;
+
+    letter-spacing: 1.5px;
+
+    box-shadow: 0 4px 10px rgba(18, 52, 91, 0.15);
+}
+
+
+/* ========================================
+   PILIH LAYANAN
+======================================== */
+
+.pilih-layanan {
+    margin-top: 45px;
+}
+
+.pilih-layanan > h3 {
+    margin: 0 0 25px;
+
+    text-align: center;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #12345b;
+    letter-spacing: 1px;
+}
+
+
+/* ========================================
+   CARD LAYANAN
+======================================== */
+
+.layanan {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+
+    align-items: stretch;
+}
+
+.layanan-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #ffffff;
+
+    padding: 35px 28px 28px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px rgba(18, 52, 91, 0.10);
+
+    border: 1px solid #eef1f3;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    min-height: 210px;
+}
+
+
+/* ========================================
+   GARIS ATAS CARD
+======================================== */
+
+.layanan-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 7px;
+
+    background: #12345b;
+}
+
+.layanan-card.loket-a::before {
+    background: #12345b;
+}
+
+.layanan-card.loket-b::before {
+    background: #78a947;
+}
+
+.layanan-card.loket-c::before {
+    background: #d32f2f;
+}
+
+
+/* ========================================
+   BUTTON LAYANAN
+======================================== */
+
+.layanan-card button {
+    width: 100%;
+    min-height: 28px;
+    padding: 3px 10px 3px 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid rgba(18, 52, 91, 0.08);
+    border-radius: 12px;
+
+    background: #12345b;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    text-align: left;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(18, 52, 91, 0.18);
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+}
+
+.layanan-card button .arrow {
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1;
+
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    opacity: 0.8;
+
+    transition:
+        transform 0.18s ease,
+        opacity 0.18s ease;
+}
+
+
+.layanan-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(18, 52, 91, 0.22);
+}
+
+.layanan-card button:hover .arrow {
+    transform: translateX(4px);
+}
+
+.layanan-card button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(18, 52, 91, 0.15);
+}
+
+.layanan-card button.loket-a {
+    background: linear-gradient(135deg, #12345b, #1d4f7a);
+}
+
+.layanan-card button.loket-b {
+    background: linear-gradient(135deg, #5f8f35, #78a947);
+    color: #ffffff;
+}
+
+.layanan-card button.loket-c {
+    background: linear-gradient(135deg, #b71c1c, #d32f2f);
+}
+
+.layanan-card button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(18, 52, 91, 0.14);
+}
+
+
+/* ========================================
+   DESKRIPSI LAYANAN
+======================================== */
+
+.layanan-card p {
+    margin: 18px 5px 22px;
+
+    font-size: 14px;
+    text-align: left;
+
+    line-height: 1.5;
+
+    color: #777;
+
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ========================================
+   TOMBOL LOADING
+======================================== */
+
+.layanan-card button:disabled {
+    opacity: 0.6;
+
+    cursor: wait;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* ========================================
+   HASIL NOMOR ANTRIAN
+======================================== */
+
+#hasil {
+    margin-top: 35px;
+
+    padding: 30px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    border: 1px solid #eef1f3;
+
+    box-shadow: 0 8px 30px rgba(18, 52, 91, 0.10);
+
+    text-align: center;
+}
+
+#hasil h2 {
+    margin: 0 0 10px;
+
+    font-size: 18px;
+
+    color: #12345b;
+}
+
+#hasil h1 {
+    margin: 10px 0;
+
+    font-size: 65px;
+
+    color: #12345b;
+
+    letter-spacing: 2px;
+}
+
+#hasil p {
+    margin: 0;
+
+    font-size: 15px;
+
+    color: #666;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 94%;
+        padding: 30px 10px 40px;
+    }
+
+    .visitor-header h1 {
+        font-size: 25px;
+    }
+
+    .visitor-header h2 {
+        font-size: 17px;
+    }
+
+    .visitor-header p {
+        font-size: 13px;
+        padding: 8px 18px;
+        margin-top: 18px;
+    }
+
+    .pilih-layanan {
+        margin-top: 35px;
+    }
+
+    .pilih-layanan > h3 {
+        font-size: 16px;
+        margin-bottom: 18px;
+    }
+
+    .layanan {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .layanan-card {
+        padding: 30px 20px 25px;
+        min-height: 0;
+    }
+
+    .layanan-card button {
+        font-size: 15px;
+        padding: 10x;
+    }
+
+    .layanan-card p {
+        font-size: 14px;
+        margin-top: 14px;
+    }
+
+    #hasil {
+        margin-top: 25px;
+        padding: 25px 20px;
+    }
+
+    #hasil h2 {
+        font-size: 16px;
+    }
+
+    #hasil h1 {
+        font-size: 55px;
+    }
+
+    #hasil p {
+        font-size: 14px;
+    }
+}
+
+
+/* ========================================
+   TOMBOL PETUGAS
+======================================== */
+
+.tombol-petugas {
+    display: flex;
+
+    gap: 12px;
+
+    justify-content: center;
+
+    margin: 20px 0;
+}
+
+.tombol-petugas button {
+    padding: 14px 24px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.tombol-petugas button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
+
+/* ========================================
+   MONITOR TV BSPJI PADANG
+======================================== */
+
+.tv-container {
+    width: 92%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+
+/* ========================================
+   BACKGROUND
+======================================== */
+
+body {
+    background: #f7f9f8;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.tv-container h1 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 700;
+    color: #12345b;
+    letter-spacing: 1px;
+}
+
+.tv-container h2 {
+    margin: 6px 0 0;
+    font-size: 20px;
+    font-weight: 500;
+    color: #12345b;
+    letter-spacing: 2px;
+    opacity: 0.75;
+}
+
+.tv-container #tanggalHariTV {
+    display: block;
+
+    margin: 8px 0 20px;
+
+    padding: 0;
+
+    font-size: 18px;
+
+    font-weight: 300;
+
+    color: #12345b;
+
+    letter-spacing: 0.5px;
+
+    background: none;
+
+    box-shadow: none;
+}
+
+/* garis warna khas BSPJI */
+
+.tv-container::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 6px;
+    margin-bottom: 30px;
+
+    background: linear-gradient(
+        to right,
+        #12345b 0%,
+        #12345b 60%,
+        #78c96b 60%,
+        #78c96b 80%,
+        #d93636 80%,
+        #d93636 100%
+    );
+
+    border-radius: 10px;
+}
+
+
+/* ========================================
+   JUDUL NOMOR
+======================================== */
+
+.judul-antrian {
+    margin: 45px 0 25px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #12345b;
+    letter-spacing: 2px;
+}
+
+
+/* ========================================
+   TIGA LOKET
+======================================== */
+
+.loket-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+}
+
+
+/* ========================================
+   CARD LOKET
+======================================== */
+
+.loket {
+    position: relative;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 32px 30px 38px;
+
+    box-shadow:
+        0 8px 30px rgba(18, 52, 91, 0.08);
+
+    overflow: hidden;
+}
+
+
+/* accent line di atas card */
+
+.loket::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 7px;
+
+    background: #12345b;
+}
+
+
+/* warna accent setiap loket */
+
+.loket:nth-child(2)::before {
+    background: #78c96b;
+}
+
+.loket:nth-child(3)::before {
+    background: #d93636;
+}
+
+
+/* ========================================
+   JUDUL LOKET
+======================================== */
+
+.loket h3 {
+    margin: 5px 0 8px;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    color: #12345b;
+
+    letter-spacing: 1px;
+}
+
+
+/* NAMA LAYANAN */
+
+.nama-layanan {
+    margin: 0 0 25px;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    color: #555;
+}
+
+
+/* ========================================
+   NOMOR ANTRIAN
+======================================== */
+
+.nomor-tv {
+    margin: 20px 0 25px;
+
+    font-size: clamp(70px, 8vw, 130px);
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    color: #12345b;
+}
+
+
+/* ========================================
+   LAYANAN
+======================================== */
+
+.layanan-tv {
+    font-size: 20px;
+    font-weight: 500;
+
+    color: #555;
+
+    min-height: 28px;
+}
+
+
+/* ========================================
+   INSTRUKSI
+======================================== */
+
+.instruksi {
+    margin-top: 45px;
+
+    font-size: 27px;
+    font-weight: 700;
+
+    color: #12345b;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* accent kecil di instruksi */
+
+.instruksi::before {
+    content: "●";
+    margin-right: 12px;
+    color: #d93636;
+}
+
+.instruksi::after {
+    content: "●";
+    margin-left: 12px;
+    color: #78c96b;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 800px) {
+
+    .tv-container {
+        padding: 30px 15px;
+    }
+
+    .loket-container {
+        grid-template-columns: 1fr;
+    }
+
+    .nomor-tv {
+        font-size: 80px;
+    }
+
+    .instruksi {
+        font-size: 22px;
+    }
+
+}
+
+
+/* ========================================
+   DEKORASI BACKGROUND
+======================================== */
+
+body {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* lingkaran hijau muda */
+
+body::before {
+    content: "";
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    right: -150px;
+    top: 80px;
+
+    border-radius: 50%;
+
+    background: rgba(120, 201, 107, 0.15);
+
+    z-index: -1;
+}
+
+
+/* lingkaran biru tua */
+
+body::after {
+    content: "";
+    position: fixed;
+
+    width: 280px;
+    height: 280px;
+
+    left: -130px;
+    bottom: 50px;
+
+    border-radius: 50%;
+
+    background: rgba(18, 52, 91, 0.08);
+
+    z-index: -1;
+}
+
+/* ========================================
+   ADMIN / PANEL PETUGAS
+======================================== */
+
+.admin-container {
+    width: 92%;
+    max-width: 1400px;
+
+    margin: 20px auto 50px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+
+    align-items: start;
+}
+
+
+/* ========================================
+   CARD LOKET
+======================================== */
+
+.admin-container .loket {
+    position: relative;
+
+    background: #ffffff;
+
+    padding: 30px;
+    border-radius: 18px;
+
+    box-shadow: 0 8px 30px rgba(18, 52, 91, 0.10);
+
+    text-align: center;
+
+    overflow: hidden;
+
+    height: 560px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #eef1f3;
+}
+
+
+/* ========================================
+   GARIS WARNA DI ATAS CARD
+======================================== */
+
+.admin-container .loket::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 7px;
+
+    background: #12345b;
+}
+
+
+/* LOKET B */
+.admin-container .loket:nth-child(2)::before {
+    background: #78c96b;
+}
+
+/* LOKET C */
+.admin-container .loket:nth-child(3)::before {
+    background: #d93636;
+}
+
+
+/* ========================================
+   JUDUL LOKET
+======================================== */
+
+.admin-container .loket h2 {
+    margin: 5px 0 5px;
+
+    font-size: 24px;
+
+    color: #12345b;
+
+    letter-spacing: 1px;
+}
+
+.admin-container .loket h3 {
+    margin: 0 0 25px;
+
+    font-size: 16px;
+
+    color: #666;
+
+    font-weight: 500;
+}
+
+
+/* ========================================
+   NOMOR SEKARANG
+======================================== */
+
+.nomor-sekarang {
+    background: #f7f9f8;
+
+    border-radius: 15px;
+
+    padding: 18px 20px;
+
+    margin-bottom: 22px;
+
+    border: 1px solid #edf0ef;
+}
+
+.nomor-sekarang h1 {
+    margin: 0;
+
+    font-size: 70px;
+
+    color: #12345b;
+
+    letter-spacing: 2px;
+
+    line-height: 1.1;
+}
+
+/* ========================================
+   STATUS SEDANG DILAYANI
+======================================== */
+
+.status-dilayani {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: #78c96b;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* ========================================
+   JUMLAH ANTRIAN
+======================================== */
+
+.jumlah-antrian {
+    color: #78c96b;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* ========================================
+   TIDAK ADA ANTRIAN
+======================================== */
+
+.antrian-kosong {
+    margin: 5px 0;
+
+    color: #999;
+
+    font-size: 13px;
+
+    font-style: italic;
+}
+
+
+/* ========================================
+   BUTTON
+======================================== */
+
+.admin-container button {
+    width: 100%;
+
+    padding: 14px 20px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        opacity 0.15s ease;
+}
+
+
+/* ========================================
+   PANGGIL BERIKUTNYA
+======================================== */
+
+.admin-container button:not(:disabled) {
+    background: #12345b;
+
+    color: #ffffff;
+
+    box-shadow: 0 5px 12px rgba(18, 52, 91, 0.18);
+}
+
+.admin-container button:not(:disabled):hover {
+    opacity: 0.94;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 7px 16px rgba(18, 52, 91, 0.22);
+}
+
+.admin-container button:not(:disabled):active {
+    transform: translateY(0);
+
+    box-shadow: 0 3px 8px rgba(18, 52, 91, 0.15);
+}
+
+
+/* ========================================
+   SELESAI
+======================================== */
+
+/*
+   Tombol selesai dibuat hijau.
+   Kalau disabled, tetap abu-abu.
+*/
+
+.admin-container button:disabled {
+    background: #e5e7e9;
+
+    color: #999;
+
+    cursor: not-allowed;
+
+    box-shadow: none;
+}
+
+
+/*
+   Saat tombol SELESAI aktif,
+   kita target berdasarkan posisi tombol kedua
+*/
+
+.admin-container .loket button:nth-of-type(2):not(:disabled) {
+    background: #78c96b;
+
+    color: #ffffff;
+
+    box-shadow: 0 5px 12px rgba(120, 201, 107, 0.20);
+}
+
+.admin-container .loket button:nth-of-type(2):not(:disabled):hover {
+    opacity: 0.94;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 7px 16px rgba(120, 201, 107, 0.25);
+}
+
+
+/* ========================================
+   DAFTAR MENUNGGU
+======================================== */
+
+.admin-container [id^="daftarMenunggu"] {
+    margin-top: 24px;
+    text-align: left;
+    border-top: 1px solid #edf0f2;
+    padding-top: 18px;
+    box-sizing: border-box;
+}
+
+.list-antrian-scroll {
+    max-height: 145px;
+    overflow-y: auto;
+    padding-right: 5px;
+    scrollbar-width: thin;
+    scrollbar-color: #c7cdd3 transparent;
+}
+
+.list-antrian-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.list-antrian-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.list-antrian-scroll::-webkit-scrollbar-thumb {
+    background: #c7cdd3;
+    border-radius: 10px;
+}
+
+.list-antrian-scroll::-webkit-scrollbar-thumb:hover {
+    background: #12345b;
+}
+
+/* ========================================
+   JUDUL DAFTAR MENUNGGU
+======================================== */
+
+.admin-container [id^="daftarMenunggu"] h3 {
+    margin: 0 0 12px;
+
+    font-size: 14px;
+
+    color: #12345b;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* ========================================
+   ITEM ANTRIAN
+======================================== */
+
+.admin-container .antrian-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 10px 13px;
+
+    margin-bottom: 7px;
+
+    background: #f7f9f8;
+
+    border: 1px solid #edf0ef;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    transition: background 0.15s ease;
+}
+
+.admin-container .antrian-item:hover {
+    background: #f0f4f2;
+}
+
+.admin-container .antrian-item strong {
+    color: #12345b;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   HEADER ADMIN
+======================================== */
+
+.admin-header {
+    width: 92%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 40px 20px 10px;
+
+    text-align: center;
+
+}
+
+
+/* GARIS 3 WARNA BSPJI */
+
+.admin-header::before {
+    content: "";
+
+    display: block;
+
+    width: 100%;
+    height: 6px;
+
+    margin-bottom: 30px;
+
+    background: linear-gradient(
+        to right,
+        #12345b 0%,
+        #12345b 60%,
+        #78c96b 60%,
+        #78c96b 80%,
+        #d93636 80%,
+        #d93636 100%
+    );
+
+    border-radius: 10px;
+}
+
+
+.admin-header h1 {
+    margin: 0;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color: #12345b;
+
+    letter-spacing: 1px;
+}
+
+.admin-header h2 {
+    margin: 5px 0 0;
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    color: #12345b;
+
+    letter-spacing: 2px;
+
+    opacity: 0.75;
+}
+
+
+/* TANGGAL */
+
+.admin-header #tanggalHari {
+    display: block;
+
+    margin: 8px 0 0;
+
+    padding: 0;
+
+    font-size: 15px;
+
+    font-weight: 300;
+
+    color: #12345b;
+
+    letter-spacing: 0.5px;
+
+    background: none;
+
+    box-shadow: none;
+}
+
+.admin-header p {
+    display: inline-block;
+
+    margin: 22px 0 0;
+
+    padding: 9px 22px;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    color: #ffffff;
+
+    background: #12345b;
+
+    border-radius: 8px;
+
+    letter-spacing: 1.5px;
+
+    box-shadow: 0 4px 10px rgba(18, 52, 91, 0.15);
+}
+
+/* ========================================
+   RESPONSIVE ADMIN
+======================================== */
+
+/* TABLET */
+@media (max-width: 1000px) {
+
+    .admin-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+}
+
+
+/* HP */
+@media (max-width: 600px) {
+
+    .admin-container {
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+    }
+
+    .admin-header {
+        padding-top: 30px;
+    }
+
+    .admin-container .loket {
+        height: auto;
+        min-height: 600px;
+    }
+
+}
+
+/* ========================================
+   POPUP NOMOR ANTRIAN
+======================================== */
+
+.popup-overlay {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background: rgba(18, 52, 91, 0.45);
+
+    z-index: 99999;
+}
+
+
+/* POPUP AKTIF */
+
+.popup-overlay.aktif {
+    display: flex;
+}
+
+
+/* ========================================
+   CARD POPUP
+======================================== */
+
+.popup-antrian {
+    position: relative;
+
+    width: 100%;
+    max-width: 430px;
+
+    padding: 35px 30px 30px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 50px rgba(18, 52, 91, 0.25);
+
+    text-align: center;
+
+    z-index: 100000;
+
+    animation: popupMasuk 0.2s ease;
+}
+
+
+/* ========================================
+   ANIMASI POPUP
+======================================== */
+
+@keyframes popupMasuk {
+
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* ========================================
+   JUDUL POPUP
+======================================== */
+
+.popup-antrian h2 {
+    margin: 0 0 15px;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: #12345b;
+
+    letter-spacing: 1px;
+}
+
+
+/* ========================================
+   NOMOR
+======================================== */
+
+.popup-antrian h1 {
+    margin: 5px 0 8px;
+
+    font-size: 72px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    color: #12345b;
+
+    letter-spacing: 3px;
+}
+
+
+/* ========================================
+   LAYANAN
+======================================== */
+
+.popup-antrian > p {
+    margin: 0;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #555;
+}
+
+
+/* ========================================
+   PESAN SIMPAN
+======================================== */
+
+.popup-antrian .pesan-simpan {
+    margin: 22px 15px 25px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    font-weight: 400;
+
+    color: #777;
+}
+
+
+/* ========================================
+   TOMBOL UNDUH
+======================================== */
+
+.popup-antrian .btn-unduh {
+    width: 100%;
+
+    padding: 14px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #12345b;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 12px rgba(18, 52, 91, 0.18);
+
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
+}
+
+
+.popup-antrian .btn-unduh:hover {
+    opacity: 0.94;
+
+    transform: translateY(-1px);
+}
+
+
+/* ========================================
+   TOMBOL TUTUP
+======================================== */
+
+.popup-antrian .btn-tutup {
+    width: 100%;
+
+    padding: 13px 20px;
+
+    margin-top: 10px;
+
+    border: 1px solid #dfe3e6;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #666;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.popup-antrian .btn-tutup:hover {
+    background: #f5f7f7;
+
+    color: #12345b;
+}
+
+
+/* ========================================
+   TOMBOL LOADING
+======================================== */
+
+.layanan-card button:disabled {
+    opacity: 0.6;
+
+    cursor: wait;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* ========================================
+   RESPONSIVE POPUP
+======================================== */
+
+@media (max-width: 500px) {
+
+    .popup-overlay {
+        padding: 18px;
+    }
+
+
+    .popup-antrian {
+        padding: 30px 22px 25px;
+
+        border-radius: 18px;
+    }
+
+
+    .popup-antrian h2 {
+        font-size: 16px;
+    }
+
+
+    .popup-antrian h1 {
+        font-size: 60px;
+    }
+
+
+    .popup-antrian > p {
+        font-size: 15px;
+    }
+
+
+    .popup-antrian .pesan-simpan {
+        font-size: 12px;
+    }
+
+}
+
+/* ========================================
+   REKAPITULASI ANTRIAN
+======================================== */
+
+.rekap-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 35px auto 50px;
+
+    padding: 30px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px rgba(18, 52, 91, 0.10);
+
+    border: 1px solid #eef1f3;
+
+    box-sizing: border-box;
+}
+
+
+.rekap-header {
+    margin-bottom: 25px;
+}
+
+
+.rekap-header h2 {
+    margin: 0;
+
+    color: #12345b;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+}
+
+
+.rekap-header p {
+    margin: 8px 0 0;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   FORM REKAP
+======================================== */
+
+.rekap-form {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.rekap-field {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.rekap-field label {
+    color: #12345b;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+}
+
+
+.rekap-field select,
+.rekap-field input {
+    height: 42px;
+
+    min-width: 180px;
+
+    padding: 0 12px;
+
+    border: 1px solid #dfe5ea;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #333333;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    box-sizing: border-box;
+
+    outline: none;
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+
+.rekap-field select:focus,
+.rekap-field input:focus {
+    border-color: #12345b;
+
+    box-shadow:
+        0 0 0 3px rgba(18, 52, 91, 0.08);
+}
+
+
+/* ========================================
+   TOMBOL DOWNLOAD
+======================================== */
+
+#btnDownloadRekap {
+    height: 42px;
+
+    padding: 0 18px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #12345b,
+        #1d4f7a
+    );
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px rgba(18, 52, 91, 0.18);
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+}
+
+
+#btnDownloadRekap:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 16px rgba(18, 52, 91, 0.22);
+}
+
+
+#btnDownloadRekap:active {
+    transform: translateY(0);
+}
+
+#btnDownloadRekap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+#btnDownloadRekap .icon-download {
+    width: 19px;
+    height: 19px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .rekap-container {
+        width: 94%;
+
+        margin: 25px auto 35px;
+
+        padding: 25px 20px;
+    }
+
+
+    .rekap-header h2 {
+        font-size: 18px;
+    }
+
+
+    .rekap-header p {
+        font-size: 13px;
+
+        line-height: 1.5;
+    }
+
+
+    .rekap-form {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 15px;
+    }
+
+
+    .rekap-field {
+        width: 100%;
+    }
+
+
+    .rekap-field select,
+    .rekap-field input {
+        width: 100%;
+
+        min-width: 0;
+
+        height: 42px;
+    }
+
+
+    #btnDownloadRekap {
+        width: 100%;
+
+        height: 42px;
+    }
+
+}
