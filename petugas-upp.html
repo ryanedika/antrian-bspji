@@ -14,27 +14,75 @@
 </head>
 
 <body>
+
+    <!-- ================= LOGIN PETUGAS ================= -->
+    
+    <div id="loginOverlay" class="login-overlay">
+    
+        <div class="login-box">
+    
+            <img
+                src="logo-bspji-pdg.png"
+                alt="Logo BSPJI Padang"
+                class="login-logo"
+            >
+    
+            <h2>PANEL PETUGAS</h2>
+    
+            <p>
+                Silakan masukkan password untuk melanjutkan.
+            </p>
+    
+            <input
+                type="password"
+                id="passwordAdmin"
+                placeholder="Password"
+                autocomplete="current-password"
+            >
+    
+            <button
+                type="button"
+                id="btnLogin"
+                onclick="loginAdmin()"
+            >
+                MASUK
+            </button>
+    
+            <p
+                id="loginError"
+                class="login-error"
+            ></p>
+    
+        </div>
+    
+    </div>
+    
+    
+    <!-- ================= KONTEN PETUGAS ================= -->
+    
+    <div id="adminContent">
+        
     <!-- ================= HEADER ================= -->
 
-<div class="admin-header">
+    <div class="admin-header">
 
-    <img
-    src="logo-bspji-pdg.png"
-    alt="Logo BSPJI Padang"
-    class="logo-bspji"
-    >
+        <img
+            src="logo-bspji-pdg.png"
+            alt="Logo BSPJI Padang"
+            class="logo-bspji"
+        >
 
-    <h1>UNIT PELAYANAN PUBLIK</h1>
+        <h1>UNIT PELAYANAN PUBLIK</h1>
 
-    <h2>BSPJI PADANG</h2>
+        <h2>BSPJI PADANG</h2>
 
-    <p id="tanggalHari"></p>
+        <p id="tanggalHari"></p>
 
-    <p>PANEL PETUGAS</p>
+        <p>PANEL PETUGAS</p>
 
-</div>
+    </div>
 
-<div class="admin-container">
+    <div class="admin-container">
 
     <!-- ================= LOKET A ================= -->
 
@@ -255,6 +303,14 @@
     </div>
 
 </div>
+
+<button
+    type="button"
+    class="btn-logout"
+    onclick="logoutAdmin()"
+>
+    LOGOUT
+</button>
 
 </div>
 
