@@ -1,6 +1,278 @@
 const SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycbwDYTi20nqexFTYIwVDpOJufkoq8iiuDtQNGyVcYzv1E07yT2OzSJTZxURS77zXEims7w/exec";
 
+let adminToken = sessionStorage.getItem("adminToken");
+
+function logoutAdmin() {
+
+    sessionStorage.removeItem("adminToken");
+
+    adminToken = null;
+
+    if (window.adminQueueInterval) {
+
+        clearInterval(
+            window.adminQueueInterval
+        );
+
+        window.adminQueueInterval = null;
+    }
+
+    document.getElementById(
+        "adminContent"
+    ).style.display = "none";
+
+    document.getElementById(
+        "loginOverlay"
+    ).style.display = "flex";
+
+    document.getElementById(
+        "passwordAdmin"
+    ).value = "";
+
+    document.getElementById(
+        "loginError"
+    ).textContent = "";
+
+}
+
+function sesiTidakValid(data) {
+
+    if (
+        data &&
+        data.success === false &&
+        data.message &&
+        data.message.includes("Sesi petugas tidak valid")
+    ) {
+
+        sessionStorage.removeItem("adminToken");
+
+        adminToken = null;
+
+        if (window.adminQueueInterval) {
+
+            clearInterval(
+                window.adminQueueInterval
+            );
+
+            window.adminQueueInterval = null;
+        }
+
+        document.getElementById(
+            "adminContent"
+        ).style.display = "none";
+
+        document.getElementById(
+            "loginOverlay"
+        ).style.display = "flex";
+
+        document.getElementById(
+            "passwordAdmin"
+        ).value = "";
+
+        document.getElementById(
+            "loginError"
+        ).textContent =
+            "Sesi telah berakhir. Silakan login kembali.";
+
+        return true;
+    }
+
+    return false;
+}
+
+function loginAdmin() {
+
+    const passwordInput =
+        document.getElementById("passwordAdmin");
+
+    const loginButton =
+        document.getElementById("btnLogin");
+
+    const loginError =
+        document.getElementById("loginError");
+
+    const password =
+        passwordInput.value.trim();
+
+
+    if (!password) {
+
+        loginError.textContent =
+            "Silakan masukkan password.";
+
+        return;
+    }
+
+
+    loginButton.disabled = true;
+
+    loginError.textContent = "";
+
+
+    const callbackName =
+        "loginCallback_" + Date.now();
+
+    let requestSelesai = false;
+
+    let script;
+
+
+    const timeout =
+        setTimeout(function () {
+
+            if (requestSelesai) return;
+
+            requestSelesai = true;
+
+            delete window[callbackName];
+
+            if (
+                script &&
+                script.parentNode
+            ) {
+                script.parentNode.removeChild(script);
+            }
+
+            loginButton.disabled = false;
+
+            loginError.textContent =
+                "Server tidak merespons. Silakan coba lagi.";
+
+        }, 5000);
+
+
+    window[callbackName] =
+        function (data) {
+
+            if (requestSelesai) return;
+
+            requestSelesai = true;
+
+            clearTimeout(timeout);
+
+            delete window[callbackName];
+
+
+            if (
+                script &&
+                script.parentNode
+            ) {
+                script.parentNode.removeChild(script);
+            }
+
+
+            if (
+                data &&
+                data.success &&
+                data.token
+            ) {
+
+                sessionStorage.setItem(
+                    "adminToken",
+                    data.token
+                );
+
+                adminToken =
+                    data.token;
+
+                bukaPanelPetugas();
+
+            } else {
+
+                loginButton.disabled = false;
+
+                loginError.textContent =
+                    data && data.message
+                        ? data.message
+                        : "Password salah.";
+
+            }
+
+        };
+
+
+    script =
+        document.createElement("script");
+
+
+    script.src =
+        SCRIPT_URL +
+        "?action=login" +
+        "&password=" +
+        encodeURIComponent(password) +
+        "&callback=" +
+        callbackName;
+
+
+    script.onerror =
+        function () {
+
+            if (requestSelesai) return;
+
+            requestSelesai = true;
+
+            clearTimeout(timeout);
+
+            delete window[callbackName];
+
+
+            if (script.parentNode) {
+                script.parentNode.removeChild(script);
+            }
+
+
+            loginButton.disabled = false;
+
+            loginError.textContent =
+                "Gagal terhubung ke server.";
+
+        };
+
+
+    document.body.appendChild(script);
+}
+
+function bukaPanelPetugas() {
+
+    document.getElementById(
+        "loginOverlay"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "adminContent"
+    ).style.display = "block";
+
+
+    cekNomorSekarang("A");
+    cekNomorSekarang("B");
+    cekNomorSekarang("C");
+
+
+    tampilkanAntrian("A");
+    tampilkanAntrian("B");
+    tampilkanAntrian("C");
+
+
+    if (!window.adminQueueInterval) {
+
+        window.adminQueueInterval =
+            setInterval(function () {
+
+                tampilkanAntrian("A");
+                tampilkanAntrian("B");
+                tampilkanAntrian("C");
+
+                cekNomorSekarang("A");
+                cekNomorSekarang("B");
+                cekNomorSekarang("C");
+
+            }, 2000);
+    }
+}
+
+
 
 // ========================================
 // STATUS REQUEST
@@ -28,6 +300,10 @@ const requestAktif = {
         current: false
     }
 };
+
+if (adminToken) {
+    bukaPanelPetugas();
+}
 
 // ========================================
 // TAMPILKAN LAYANAN
@@ -139,6 +415,12 @@ function panggilBerikutnya(loket) {
 
             requestSelesai = true;
 
+            if (sesiTidakValid(data)) {
+                bersihkanRequest();
+                requestAktif[loket].next = false;
+                return;
+            }
+
             console.log(
                 "Nomor dipanggil " + loket + ":",
                 data
@@ -196,12 +478,14 @@ function panggilBerikutnya(loket) {
 
     script =
         document.createElement("script");
-
+    
     script.src =
         SCRIPT_URL +
         "?action=next" +
         "&loket=" +
         encodeURIComponent(loket) +
+        "&token=" +
+        encodeURIComponent(adminToken) +
         "&callback=" +
         callbackName;
 
@@ -287,6 +571,12 @@ function tampilkanAntrian(loket) {
             }
 
             requestSelesai = true;
+
+            if (sesiTidakValid(data)) {
+                bersihkanRequest();
+                requestAktif[loket].queue = false;
+                return;
+            }
 
             console.log(
                 "Daftar " + loket + ":",
@@ -380,15 +670,15 @@ function tampilkanAntrian(loket) {
     script =
         document.createElement("script");
 
-
     script.src =
         SCRIPT_URL +
         "?action=queue" +
         "&loket=" +
         encodeURIComponent(loket) +
+        "&token=" +
+        encodeURIComponent(adminToken) +
         "&callback=" +
         callbackName;
-
 
     script.onerror =
         function() {
@@ -718,6 +1008,12 @@ function selesaikanAntrian(loket) {
 
             requestSelesai = true;
 
+            if (sesiTidakValid(data)) {
+                bersihkanRequest();
+                requestAktif[loket].finish = false;
+                return;
+            }
+
             console.log(
                 "Selesai " + loket + ":",
                 data
@@ -776,7 +1072,6 @@ function selesaikanAntrian(loket) {
     script =
         document.createElement("script");
 
-
     script.src =
         SCRIPT_URL +
         "?action=finish" +
@@ -784,9 +1079,10 @@ function selesaikanAntrian(loket) {
         encodeURIComponent(loket) +
         "&nomor=" +
         encodeURIComponent(nomor) +
+        "&token=" +
+        encodeURIComponent(adminToken) +
         "&callback=" +
-        callbackName;
-
+        callbackName;     
 
     script.onerror =
         function() {
@@ -819,33 +1115,6 @@ function selesaikanAntrian(loket) {
     document.body.appendChild(script);
 
 }
-
-
-// ========================================
-// SAAT HALAMAN DIBUKA
-// ========================================
-
-cekNomorSekarang("A");
-cekNomorSekarang("B");
-cekNomorSekarang("C");
-
-tampilkanAntrian("A");
-tampilkanAntrian("B");
-tampilkanAntrian("C");
-
-
-// ========================================
-// UPDATE OTOMATIS SETIAP 2 DETIK
-// ========================================
-
-setInterval(function() {
-
-    tampilkanAntrian("A");
-    tampilkanAntrian("B");
-    tampilkanAntrian("C");
-
-}, 2000);
-
 
 // ========================================
 // TANGGAL DAN HARI
@@ -1241,7 +1510,16 @@ function downloadRekapExcel() {
             }
 
             requestSelesai = true;
-
+            
+            if (sesiTidakValid(data)) {
+                delete window[callbackName];
+            
+                if (script.parentNode) {
+                    script.parentNode.removeChild(script);
+                }
+            
+                return;
+            }
 
             if (
                 data &&
@@ -1305,8 +1583,7 @@ function downloadRekapExcel() {
             }
 
         };
-
-
+    
     script.src =
         SCRIPT_URL +
         "?action=rekap" +
@@ -1316,9 +1593,10 @@ function downloadRekapExcel() {
         encodeURIComponent(tanggalMulai) +
         "&tanggalAkhir=" +
         encodeURIComponent(tanggalAkhir) +
+        "&token=" +
+        encodeURIComponent(adminToken) +
         "&callback=" +
         callbackName;
-
 
     document.body.appendChild(
         script
